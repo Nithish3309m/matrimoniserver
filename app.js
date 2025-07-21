@@ -12,8 +12,7 @@ const http = require("http");
 const socketIo = require("socket.io");
 const featured=require("./routes/featured");
 
-import path from 'path';
-const __dirname = path.resolve(); 
+
 const app=express();
 
 const PORT=process.env.PORT|| 3000;
@@ -27,7 +26,7 @@ app.use(express.json())
 
 app.use('/api/auth', route); 
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/api/profile', profileRoute);
 
